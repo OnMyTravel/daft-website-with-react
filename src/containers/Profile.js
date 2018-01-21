@@ -7,7 +7,7 @@ class Profile extends Component {
     return (
       <div className="App">
         Here is the profile page
-        <Link to="/">Home</Link>
+        <Link to="/default">Home</Link>
       </div>
     );
   }
