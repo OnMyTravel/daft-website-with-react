@@ -1,8 +1,14 @@
+import './index.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import AppRouter from './Router';
+import { createStore } from 'redux'
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<AppRouter />, document.getElementById('root'));
+import AppRouter from './Router';
+import reducers from './reducers'
+
+let store = createStore(reducers)
+
+ReactDOM.render(<AppRouter store={store}/>, document.getElementById('root'));
 registerServiceWorker();

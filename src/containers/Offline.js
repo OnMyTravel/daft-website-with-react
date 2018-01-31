@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import CustomButton from '../components/custombutton'
 import './Offline.css';
 
-import { Link } from 'react-router-dom'
-
 class Offline extends Component {
+
+  increment() {
+    console.log('ICI');
+  }
+
   render() {
     return (
       <div className="Offline">
@@ -13,6 +16,7 @@ class Offline extends Component {
             <h1>On My Travel revient.</h1>
             <p>L'application est actuellement en vacances mais reviendra sur mobile
             avec pleins de nouveautés super cool ! :p</p>
+            <CustomButton click={this.increment}></CustomButton>
           </div>
         </div>
       </div>
