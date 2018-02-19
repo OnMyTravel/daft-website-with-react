@@ -1,0 +1,59 @@
+.offline__wrapper {
+  /* padding: 100px;   */
+  height: 100%;
+}
+
+.offline__container {
+  height: 100%;
+  /* background-color: #FFCE54;
+  background-color: #242A34; */
+
+  /* background-color: #242A34; */
+  display: flex;
+
+  /* -webkit-box-shadow: 0px 10px 30px -20px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 30px -20px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 30px -20px rgba(0,0,0,0.75); */
+}
+
+.offline__image {
+  background-image: url('../assets/arc-de-triomphe.jpg');
+  background-size: cover;
+  background-position: center;
+
+  flex-basis: 40%;
+}
+
+.offline__image img {
+  width: 100%;  
+}
+
+.offline__text {
+  flex-basis: 40%;
+  padding: 50px;
+  font-family: 'Raleway', sans-serif;  
+  font-weight: 300;
+}
+
+.offline__text__title {
+  font-weight: 300;
+}
+
+.offline__register {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.offline__button__fb {
+  display: inline-block;
+  background-color: #3b5998;
+  padding: 20px 40px;
+  border-radius: 40px;
+  color: white;
+}
+
+.offline__button__plus {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #242A34;
+}
