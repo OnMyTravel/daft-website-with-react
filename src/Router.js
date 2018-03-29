@@ -10,6 +10,7 @@ import App from './containers/App';
 import Profile from './containers/Profile';
 import OfflinePage from './containers/OfflinePage';
 import ChartePage from './containers/ChartePage';
+import Homepage from './containers/Homepage';
 
 const AppRouter = ({ store }) => (
   <Provider store={store}>
@@ -19,7 +20,10 @@ const AppRouter = ({ store }) => (
           <Route exact path="/" component={OfflinePage}/>
           <Route exact path="/default" component={App}/>
           <Route exact path="/profile" component={Profile}/>
+
           <Route exact path="/charte" component={ChartePage}/>
+
+          <Route exact path="/map" component={Homepage}/>
         </div>
     </Router>
   </Provider>
