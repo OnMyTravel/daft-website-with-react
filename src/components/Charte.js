@@ -3,14 +3,16 @@ import React from 'react'
 import './Charte.css';
 
 import Modale from './Modale';
+import Button from './Button';
 
 const Charte = ({ todos, onTodoClick }) => {
 
   return (
   <div class="charte__wrapper">
       <h1>Buttons:</h1>
+      <Button>Primary action</Button>
       <div class="charte__frame">
-        <a class="btn btn-primary" href="#">Primary action</a>
+        <a class="btn btn-primary" href="#"></a>
       </div>
       
       <div class="charte__frame">
