@@ -2,13 +2,13 @@ import React from 'react'
 
 import './Button.css';
 
-import Modale from './Modale';
+const Button = ({ link, children, alt = 'primary' } = {}) => {
 
-const Button = ({ todos, onTodoClick }) => {
+  const classStyle = (alt === 'primary') ? 'btn btn-primary' : 'btn btn-second';
 
   return (
     <div>
-      <a class="btn btn-primary" href="#">Primary action</a>
+      <a className={classStyle} href={link}>{children}</a>
     </div>
   )
 }
