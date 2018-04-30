@@ -3,7 +3,7 @@ import Offline from '../components/Offline'
 import { toggleTodo } from '../actions'
 
 const getVisibleTodos = (todos, filter) => {
-  return [{ message: 'TOTO' }];
+  return [{ message: 'TOTO' }]
 }
 
 const mapStateToProps = (state) => ({

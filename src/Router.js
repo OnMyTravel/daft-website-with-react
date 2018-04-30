@@ -15,7 +15,7 @@ import Homepage from './containers/Homepage';
 const AppRouter = ({ store }) => (
   <Provider store={store}>
     <Router>
-        <div>
+        <div id="router">
           {/* <div>Any code written here will be executed for every page</div> */}
           <Route exact path="/" component={OfflinePage}/>
           <Route exact path="/default" component={App}/>
