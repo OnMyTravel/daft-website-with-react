@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import App from './containers/App';
 import Profile from './containers/Profile';
 import OfflinePage from './containers/OfflinePage';
+import ChartePage from './containers/ChartePage';
 
 const AppRouter = ({ store }) => (
   <Provider store={store}>
@@ -18,6 +19,7 @@ const AppRouter = ({ store }) => (
           <Route exact path="/" component={OfflinePage}/>
           <Route exact path="/default" component={App}/>
           <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/charte" component={ChartePage}/>
         </div>
     </Router>
   </Provider>
