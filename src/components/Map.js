@@ -2,7 +2,7 @@
 import React, {
     Component
 } from 'react'
-import PropTypes from 'prop-types'
+
 import './Map.css';
 
 const MapStyle = [
@@ -87,10 +87,6 @@ const MapStyle = [
 ];
 
 class Map extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         const map = new google.maps.Map(document.getElementById('map'), {
             center: {
@@ -111,8 +107,8 @@ class Map extends Component {
     }
 
     render() {
-        return ( <
-            div id = 'map' className="map-container" / >
+        return (
+            <div id="map" className="map-container"/>
         )
     }
 }
