@@ -1,20 +1,25 @@
+import { START_FACEBOOK_AUTHENTICATION, FACEBOOK_AUTHENTICATION_FAILED } from '../actions/actiontypes'
+
 const defaultState = {
     status: 'disconnected'
 }
 
-function loginWithFacebook(state) {
-
-}
-
 const UserReducers = (state = defaultState, action) => {
     switch (action.type) {
-        case 'LOG-USER':
-            loginWithFacebook(state);
+        case START_FACEBOOK_AUTHENTICATION:
+          return Object.assign({}, state, {
+            facebookStatus: 'pending'
+          });
+        
+          case FACEBOOK_AUTHENTICATION_FAILED:
+          return Object.assign({}, state, {
+            facebookStatus: 'failed'
+          });
 
-            //window.FB.login()
-            window.FB.getLoginStatus(function(response) {
-                console.log(response);
-            });
+        case 'LOG-USER':
+            // window.FB.getLoginStatus(function(response) {
+            //     console.log(response);
+            // });
 
             return Object.assign({}, state, {
                 status : (state.status === 'connected') ? 'disconnected' : 'connected'

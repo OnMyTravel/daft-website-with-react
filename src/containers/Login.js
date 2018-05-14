@@ -1,19 +1,19 @@
 import { connect } from 'react-redux'
 import Login from '../components/Login'
 
-import { toogleUserConnectionStatus } from '../actions'
+import { logWithFacebook } from '../actions'
 
 const getVisibleTodos = (todos, filter) => {
   return [{ message: 'TOTO' }]
 }
 
 const mapStateToProps = (state) => ({
-  userStatus: state.user.status,
+  facebookStatus: state.user.facebookStatus,
   todos: getVisibleTodos(state.todos, state.visibilityFilter)
 })
 
 const mapDispatchToProps = {
-  toogleUserConnectionStatus: toogleUserConnectionStatus
+  logWithFacebook: logWithFacebook
 }
 
 const LoginPage = connect(

@@ -1,14 +1,13 @@
 import React from 'react'
 
 const Login = ({
-    userStatus,
-    toogleUserConnectionStatus
+    facebookStatus,
+    logWithFacebook
 }) => {
-    console.log(userStatus);
     return (
         <div>
-            <div>{userStatus}</div>
-            <a href="#" onClick={toogleUserConnectionStatus}>Me connecter avec Facebook</a>
+            <div>{facebookStatus}</div>
+            <a href="#" onClick={logWithFacebook}>Me connecter avec Facebook</a>
         </div>
     )
 }
