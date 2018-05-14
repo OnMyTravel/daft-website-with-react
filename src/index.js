@@ -9,11 +9,11 @@ import registerServiceWorker from './registerServiceWorker';
 import AppRouter from './Router';
 import reducers from './reducers'
 
-let store = createStore(reducers,
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+let store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(thunk))
 )
 
 ReactDOM.render(<AppRouter store={store}/>, document.getElementById('root'));
