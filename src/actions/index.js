@@ -14,3 +14,8 @@ export const toggleTodo = (id) => ({
   type: 'TOGGLE_TODO',
   id
 })
+
+// Facebook
+export const toogleUserConnectionStatus = () => ({
+  type: 'LOG-USER'
+})
