@@ -1,29 +1,52 @@
 import {
-    START_FACEBOOK_AUTHENTICATION,
-    FACEBOOK_AUTHENTICATION_FAILED,
-    FACEBOOK_AUTHENTICATION_SUCCESS
+  START_AUTHENTICATION,
+  FACEBOOK_AUTHENTICATION_FAILED,
+  FACEBOOK_AUTHENTICATION_SUCCESS,
+  API_AUTHENTICATION_SUCCESS,
+  API_AUTHENTICATION_FAILED
 } from './actiontypes'
 
+import API from '../services/API'
+
 export const logWithFacebook = () => {
-    return function (dispatch) {
+  return function (dispatch) {
+    dispatch({
+      type: START_AUTHENTICATION
+    })
+
+    window.FB.login(function (response) {
+      if (response.status === "connected") {
         dispatch({
-            type: START_FACEBOOK_AUTHENTICATION
+          type: FACEBOOK_AUTHENTICATION_SUCCESS,
+          result: {
+            token: response.authResponse.accessToken,
+            userID: response.authResponse.userID
+          }
         })
 
-        window.FB.login(function (response) {
-            if(response.status === "connected") {
-                dispatch({
-                    type: FACEBOOK_AUTHENTICATION_SUCCESS,
-                    result: {
-                        token: response.authResponse.accessToken,
-                        userID: response.authResponse.userID
-                    }
-                })
-            } else {
-                dispatch({
-                    type: FACEBOOK_AUTHENTICATION_FAILED
-                })
-            }
+        API.post('/users/register/facebook', {
+          "access_token": response.authResponse.accessToken,
         })
-    }
+        .then((data) => {
+          dispatch({
+            type: API_AUTHENTICATION_SUCCESS,
+            result: {
+              token: data.token
+            }
+          })
+        })
+        .catch((err) => {
+          console.log(err);
+          dispatch({
+            type: API_AUTHENTICATION_FAILED
+          })
+        })
+
+      } else {
+        dispatch({
+          type: FACEBOOK_AUTHENTICATION_FAILED
+        })
+      }
+    })
+  }
 }

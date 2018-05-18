@@ -1,38 +1,43 @@
 import {
-    START_FACEBOOK_AUTHENTICATION,
-    FACEBOOK_AUTHENTICATION_FAILED,
-    FACEBOOK_AUTHENTICATION_SUCCESS
+  START_AUTHENTICATION,
+  FACEBOOK_AUTHENTICATION_FAILED,
+  FACEBOOK_AUTHENTICATION_SUCCESS,
+  API_AUTHENTICATION_SUCCESS
 } from '../actions/actiontypes'
 
 const defaultState = {
-    status: 'disconnected'
+  status: 'disconnected'
 }
 
 const UserReducers = (state = defaultState, action) => {
-    switch (action.type) {
-        case START_FACEBOOK_AUTHENTICATION:
-            return Object.assign({}, state, {
-                facebookStatus: 'pending'
-            });
+  switch (action.type) {
+    case START_AUTHENTICATION:
+      return Object.assign({}, state, {
+        facebookStatus: 'pending'
+      });
 
-        case FACEBOOK_AUTHENTICATION_FAILED:
-            return Object.assign({}, state, {
-                facebookStatus: 'failed'
-            });
+    case FACEBOOK_AUTHENTICATION_FAILED:
+      return Object.assign({}, state, {
+        facebookStatus: 'failed'
+      });
 
-        case FACEBOOK_AUTHENTICATION_SUCCESS:
-            console.log(action)
-            return Object.assign({}, state, {
-                facebookStatus: 'success',
-                facebook: {
-                    token: action.result.token,
-                    userID: action.result.userID
-                }
-            });
+    case FACEBOOK_AUTHENTICATION_SUCCESS:
+      return Object.assign({}, state, {
+        facebookStatus: 'success',
+        facebook: {
+          token: action.result.token,
+          userID: action.result.userID
+        }
+      });
 
-        default:
-            return state
-    }
+    case API_AUTHENTICATION_SUCCESS:
+      return Object.assign({}, state, {
+        api_token: action.result.token
+      });
+
+    default:
+      return state
+  }
 }
 
 export default UserReducers

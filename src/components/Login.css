@@ -1,0 +1,55 @@
+.login__wrapper {
+  height: 100%;
+
+  background: url('../assets/plan-our-trip.jpg') center;
+  background-size: cover;
+}
+
+.login__overlay {
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+
+  display: flex;
+}
+
+.login__container {
+  font-family: "Raleway", sans-serif;
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.login__logo {
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+.login__content {
+  padding: 0 2rem;
+  max-width: 60rem;
+
+  align-self: center;
+  margin-bottom: 20%;
+}
+
+.login__content h1, h2 {
+  margin: 0;
+}
+
+.login__content h1 {
+  font-size: 3rem;
+
+}
+
+.login__content h2 {
+  font-weight: 100;
+}
+
+.login_panel {
+  background-color: white;
+  flex-grow: 2;
+
+  box-shadow:0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+}
