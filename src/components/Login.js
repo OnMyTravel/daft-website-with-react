@@ -21,7 +21,7 @@ const Login = ({
               </p>
 
               <p className="padding">
-                <button className="button is-link">Connect with Facebook</button>
+                <button className="button is-link" onClick={logWithFacebook}>Connect with Facebook</button>
               </p>
 
               <p className="is-size-7">Les informations recueillies sur ce formulaire sont enregistrées dans un fichier informatisé par OnMyTravel pour permettre l'accès au service offert par OnMyTravel. Elles sont conservées pendant la durée d'utilisation du service et sont destinées à OnMyTravel exclusivement. Elles ne sont pas communiquées à des tiers.</p>
