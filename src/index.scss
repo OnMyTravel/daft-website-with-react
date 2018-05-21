@@ -1,13 +1,9 @@
-html, body {
-    height: 100%;
-}
+@import "bulma/sass/utilities/initial-variables";
 
-html, body, #root, #root>div {
-  height: 100%
-}
+$family-sans-serif: "Raleway", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+@import 'bulma/bulma.sass';
+
+html {
+  overflow-y: auto;
 }

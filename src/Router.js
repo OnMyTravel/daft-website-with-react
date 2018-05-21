@@ -13,10 +13,13 @@ import OfflinePage from './containers/OfflinePage';
 import ChartePage from './containers/ChartePage';
 import Homepage from './containers/Homepage';
 
+import Navbar from './components/Navbar';
+
 const AppRouter = ({ store }) => (
   <Provider store={store}>
     <Router>
         <div id="router">
+          <Navbar />
           {/* <div>Any code written here will be executed for every page</div> */}
           <Route exact path="/" component={OfflinePage}/>
           <Route exact path="/default" component={App}/>
