@@ -6,6 +6,8 @@ import {
   API_AUTHENTICATION_FAILED
 } from './actiontypes'
 
+import { push } from 'react-router-redux'
+
 import API from '../services/API'
 
 export const logWithFacebook = () => {
@@ -34,6 +36,8 @@ export const logWithFacebook = () => {
               token: data.token
             }
           })
+
+          dispatch(push('/profile'));
         })
         .catch((err) => {
           console.log(err);

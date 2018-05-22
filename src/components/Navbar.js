@@ -15,6 +15,9 @@ const Navbar = () => {
           <a className="navbar-item" href="/log-in">
             Log-in
           </a>
+          <a className="navbar-item" href="/profile">
+            Mon profile
+          </a>
         </div>
       </div>
     </nav>

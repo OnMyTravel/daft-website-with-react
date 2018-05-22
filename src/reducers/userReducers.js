@@ -5,11 +5,11 @@ import {
   API_AUTHENTICATION_SUCCESS
 } from '../actions/actiontypes'
 
-const defaultState = {
-  status: 'disconnected'
+const userDefaultState = {
+  isLoggedIn: false
 }
 
-const UserReducers = (state = defaultState, action) => {
+const UserReducers = (state = userDefaultState, action) => {
   switch (action.type) {
     case START_AUTHENTICATION:
       return Object.assign({}, state, {
@@ -32,7 +32,8 @@ const UserReducers = (state = defaultState, action) => {
 
     case API_AUTHENTICATION_SUCCESS:
       return Object.assign({}, state, {
-        api_token: action.result.token
+        api_token: action.result.token,
+        isLoggedIn: true
       });
 
     default:

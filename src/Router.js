@@ -1,10 +1,14 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux'
 import PropTypes from 'prop-types';
+
+import PrivateRoute from './containers/PrivateRouteContainer'
 
 import ProfilePage from './containers/ProfilePage';
 import LoginPage from './containers/LoginPage';
@@ -14,19 +18,22 @@ import Homepage from './containers/Homepage';
 
 import Navbar from './components/Navbar';
 
-const AppRouter = ({ store }) => (
+const AppRouter = ({ store, history, persistor }) => (
   <Provider store={store}>
-    <Router>
-        <div id="router">
-          <Navbar />
-          {/* <div>Any code written here will be executed for every page</div> */}
-          <Route exact path="/" component={OfflinePage}/>
-          <Route exact path="/log-in" component={LoginPage}/>
-          <Route exact path="/charte" component={ChartePage}/>
-          <Route exact path="/map" component={Homepage}/>
-          <Route exact path="/profile" component={ProfilePage}/>
-        </div>
-    </Router>
+    <PersistGate loading={null} persistor={persistor}>
+      <ConnectedRouter history={history}>
+        <Switch>
+          <div id="router">
+            <Navbar />
+            <Route exact path="/" component={OfflinePage} />
+            <Route exact path="/log-in" component={LoginPage} />
+            <Route exact path="/charte" component={ChartePage} />
+            <Route exact path="/map" component={Homepage} />
+            <PrivateRoute exact path="/profile" component={ProfilePage} />
+          </div>
+        </Switch>
+      </ConnectedRouter>
+    </PersistGate>
   </Provider>
 )
 

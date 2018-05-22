@@ -7,10 +7,12 @@ const getVisibleTodos = (todos, filter) => {
   return [{ message: 'TOTO' }]
 }
 
-const mapStateToProps = (state) => ({
-  facebookStatus: state.user.facebookStatus,
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
-})
+const mapStateToProps = (state) => {
+  return {
+    facebookStatus: state.user.facebookStatus,
+    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  }
+}
 
 const mapDispatchToProps = {
   logWithFacebook: logWithFacebook

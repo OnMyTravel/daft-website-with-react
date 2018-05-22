@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import './Profile.css';
-import { Link } from 'react-router-dom'
 
 class Profile extends Component {
   render() {
     return (
-      <section class="hero is-fullheight">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
-              My profile
+      <section className="hero is-fullheight">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title">
+              My profile <a href="/">Back to home</a>
             </h1>
-            <h2 class="subtitle">
+            <h2 className="subtitle">
               Not an existing page yet ...
             </h2>
 
