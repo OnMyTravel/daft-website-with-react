@@ -15,9 +15,6 @@ class PrivateRouteContainer extends React.Component {
       ...props
     } = this.props
 
-    console.log('LAZY ?', isAuthenticated); 
-    console.log(props);
-
     return (
       <Route
         {...props}

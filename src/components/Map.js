@@ -103,7 +103,6 @@ class Map extends Component {
     }
 
     initMap() {
-        console.log('ICI');
     }
 
     render() {

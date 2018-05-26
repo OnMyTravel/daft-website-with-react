@@ -40,7 +40,6 @@ export const logWithFacebook = () => {
           dispatch(push('/profile'));
         })
         .catch((err) => {
-          console.log(err);
           dispatch({
             type: API_AUTHENTICATION_FAILED
           })
