@@ -2,14 +2,14 @@ import './index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
+
+import configureStore from './configure-store';
+
 import registerServiceWorker from './registerServiceWorker';
 
 import AppRouter from './Router';
-import reducers from './reducers'
 
-let store = createStore(reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const { store, persistor, history } = configureStore();
 
-ReactDOM.render(<AppRouter store={store}/>, document.getElementById('root'));
+ReactDOM.render(<AppRouter store={store} history={history} persistor={persistor}/>, document.getElementById('root'));
 registerServiceWorker();

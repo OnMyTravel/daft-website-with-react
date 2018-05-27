@@ -1,0 +1,17 @@
+.navbar {
+  &.is-transparent {
+    background-color: transparent;
+    background-image: none;
+  }
+}
+
+.navbar__container {
+  .logo {
+    color: white;
+    margin-left: 2em;
+  }
+
+  .navbar-item {
+    color: white;
+  }
+}

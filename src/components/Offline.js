@@ -2,25 +2,18 @@ import React from 'react'
 
 import './Offline.css'
 
-const Offline = ({todos, onTodoClick}) => {
+const Offline = ({ todos, onTodoClick }) => {
 
   return (
-    <div className="offline__wrapper">
-      <div className="offline__overlay">
-        <div className="offline__container">
-
-          <div className="offline__logo">
-            On My Travel.
-          </div>
-
-          <div className="offline__content">
-            <h2>Welcome to OnMyTravel</h2>
-            <h1>A new way to share your travel experiences.</h1>
-          </div>
-
+    <section className="hero offline__wrapper is-fullheight">
+      <div className="hero-body offline__overlay">
+        <div className="container">
+          <h1 className="title is-2 has-text-weight-light">Welcome to OnMyTravel</h1>
+          <h2 className="title is-1">A new way to share your travel experiences.</h2>
         </div>
       </div>
-    </div>)
+    </section>
+  )
 }
 
 export default Offline

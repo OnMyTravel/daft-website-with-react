@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+# Ignoring CSS
+*.css
+
 # production
 /build
 
