@@ -1,9 +1,13 @@
 import { connect } from 'react-redux'
 
+import { logOut } from '../actions/index'
+
 import Profile from '../components/Profile'
 
 const mapStateToProps = (state) => ({})
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  logOut
+}
 
 const ProfilePage = connect(
   mapStateToProps,

@@ -3,7 +3,8 @@ import {
   FACEBOOK_AUTHENTICATION_FAILED,
   FACEBOOK_AUTHENTICATION_SUCCESS,
   API_AUTHENTICATION_SUCCESS,
-  API_AUTHENTICATION_FAILED
+  API_AUTHENTICATION_FAILED,
+  API_AUTHENTICATION_LOGOUT
 } from './actiontypes'
 
 import { push } from 'react-router-redux'
@@ -50,6 +51,14 @@ export const logWithFacebook = () => {
           type: FACEBOOK_AUTHENTICATION_FAILED
         })
       }
+    })
+  }
+}
+
+export const logOut = () => {
+  return function (dispatch) {
+    dispatch({
+      type: API_AUTHENTICATION_LOGOUT
     })
   }
 }

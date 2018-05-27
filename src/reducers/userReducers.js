@@ -2,7 +2,8 @@ import {
   START_AUTHENTICATION,
   FACEBOOK_AUTHENTICATION_FAILED,
   FACEBOOK_AUTHENTICATION_SUCCESS,
-  API_AUTHENTICATION_SUCCESS
+  API_AUTHENTICATION_SUCCESS,
+  API_AUTHENTICATION_LOGOUT
 } from '../actions/actiontypes'
 
 const userDefaultState = {
@@ -34,6 +35,12 @@ const UserReducers = (state = userDefaultState, action) => {
       return Object.assign({}, state, {
         api_token: action.result.token,
         isLoggedIn: true
+      });
+
+      case API_AUTHENTICATION_LOGOUT:
+      return Object.assign({}, state, {
+        isLoggedIn: false,
+        api_token: null
       });
 
     default:
