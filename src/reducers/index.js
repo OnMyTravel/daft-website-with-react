@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import CounterReducers from './counters';
 import UserReducers from './userReducers';
+import ConnexionReducers from './connexionReducers';
+import persistState from './persist-state';
 
 const todoApp = combineReducers({
-  CounterReducers,
-  user: UserReducers
+  user: UserReducers,
+  connexion: ConnexionReducers,
+  persistState: persistState
 })
 
 export default todoApp

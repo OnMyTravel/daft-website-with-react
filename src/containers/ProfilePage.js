@@ -4,7 +4,10 @@ import { logOut } from '../actions/index'
 
 import Profile from '../components/Profile'
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = (state) => {
+  return {}
+}
+
 const mapDispatchToProps = {
   logOut
 }
