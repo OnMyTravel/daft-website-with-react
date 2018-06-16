@@ -17,41 +17,38 @@ export const logWithFacebook = () => {
       type: START_AUTHENTICATION
     })
 
-    window.FB.login(function (response) {
-      if (response.status === "connected") {
+    API.Facebook.login()
+      .then((facebookAccess) => {
         dispatch({
           type: FACEBOOK_AUTHENTICATION_SUCCESS,
+          result: facebookAccess
+        })
+
+        return facebookAccess;
+      })
+      .then((facebookAccess) => {
+        return API.User.register(facebookAccess.accessToken)
+      })
+      .then((data) => {
+        API.setToken(data.token);
+        dispatch({
+          type: API_AUTHENTICATION_SUCCESS,
           result: {
-            token: response.authResponse.accessToken,
-            userID: response.authResponse.userID
+            token: data.token
           }
         })
 
-        API.post('/users/register/facebook', {
-          "access_token": response.authResponse.accessToken,
-        })
-        .then((data) => {
-          dispatch({
-            type: API_AUTHENTICATION_SUCCESS,
-            result: {
-              token: data.token
-            }
-          })
-
-          dispatch(push('/profile'));
-        })
-        .catch((err) => {
-          dispatch({
-            type: API_AUTHENTICATION_FAILED
-          })
-        })
-
-      } else {
+        dispatch(push('/profile'));
+      })
+      .catch(() => {
         dispatch({
           type: FACEBOOK_AUTHENTICATION_FAILED
         })
-      }
-    })
+
+        dispatch({
+          type: API_AUTHENTICATION_FAILED
+        })
+      });
   }
 }
 

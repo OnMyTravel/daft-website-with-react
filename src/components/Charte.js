@@ -4,14 +4,11 @@ import './Charte.css';
 
 import Modale from './Modale';
 import Button from './Button';
-import Navbar from './Navbar';
 
 const Charte = ({ todos, onTodoClick }) => {
 
   return (
   <div className="charte__wrapper">
-
-      <Navbar />
 
       <h1>Buttons:</h1>
 

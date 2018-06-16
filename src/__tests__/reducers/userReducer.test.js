@@ -8,10 +8,7 @@ describe('userReducer', () => {
       const nextState = userReducers(undefined, { type: START_AUTHENTICATION });
 
       // then
-      expect(nextState).toEqual({
-        isLoggedIn: false,
-        "facebookStatus": "pending",
-      })
+      expect(nextState).toEqual({})
     })
   })
 
@@ -27,10 +24,7 @@ describe('userReducer', () => {
       const nextState = userReducers(currentState, { type: API_AUTHENTICATION_LOGOUT })
 
       // then
-      expect(nextState).toEqual({
-        isLoggedIn: false,
-        api_token: null
-      })
+      expect(nextState).toEqual({})
     })
   })
 })

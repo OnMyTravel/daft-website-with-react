@@ -1,18 +1,4 @@
-import request from 'request-promise-native'
+import APIClient from './APIClient';
+import HttpClient from './HttpClient'
 
-const BASE_URL_API = 'http://localhost:3001'
-
-const post = (path, body) => {
-  const options = {
-    method: 'POST',
-    uri: `${BASE_URL_API}${path}`,
-    body,
-    json: true
-  }
-
-  return request(options);
-}
-
-export default {
-  post
-}
+export default new APIClient({ httpClient: new HttpClient({ baseUrl: 'http://localhost:3001' }) });

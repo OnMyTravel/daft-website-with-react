@@ -1,47 +1,20 @@
 import {
-  START_AUTHENTICATION,
-  FACEBOOK_AUTHENTICATION_FAILED,
-  FACEBOOK_AUTHENTICATION_SUCCESS,
-  API_AUTHENTICATION_SUCCESS,
+  LOAD_USER_PROFILE,
   API_AUTHENTICATION_LOGOUT
 } from '../actions/actiontypes'
 
-const userDefaultState = {
-  isLoggedIn: false
-}
+const defaultState = {}
 
-const UserReducers = (state = userDefaultState, action) => {
+const UserReducers = (state = defaultState, action) => {
   switch (action.type) {
-    case START_AUTHENTICATION:
+    case LOAD_USER_PROFILE:
+      console.log(state.user)
       return Object.assign({}, state, {
-        facebookStatus: 'pending'
+        user: action.result
       });
 
-    case FACEBOOK_AUTHENTICATION_FAILED:
-      return Object.assign({}, state, {
-        facebookStatus: 'failed'
-      });
-
-    case FACEBOOK_AUTHENTICATION_SUCCESS:
-      return Object.assign({}, state, {
-        facebookStatus: 'success',
-        facebook: {
-          token: action.result.token,
-          userID: action.result.userID
-        }
-      });
-
-    case API_AUTHENTICATION_SUCCESS:
-      return Object.assign({}, state, {
-        api_token: action.result.token,
-        isLoggedIn: true
-      });
-
-      case API_AUTHENTICATION_LOGOUT:
-      return Object.assign({}, state, {
-        isLoggedIn: false,
-        api_token: null
-      });
+    case API_AUTHENTICATION_LOGOUT:
+      return Object.assign({}, defaultState);
 
     default:
       return state

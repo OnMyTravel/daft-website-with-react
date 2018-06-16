@@ -35,7 +35,7 @@ class PrivateRouteContainer extends React.Component {
 }
 
 const PrivateRoute = connect(state => ({
-  isAuthenticated: state.user.isLoggedIn
+  isAuthenticated: state.connexion.accessToken != null
 }), null, null, { pure: false })(PrivateRouteContainer)
 
 export default PrivateRoute;
