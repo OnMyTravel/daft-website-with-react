@@ -3,14 +3,11 @@ import Login from '../components/Login'
 
 import { logWithFacebook } from '../actions'
 
-const getVisibleTodos = (todos, filter) => {
-  return [{ message: 'TOTO' }]
-}
-
 const mapStateToProps = (state) => {
+  const hasLoggingFailed = (state.connexion.hasOwnProperty('connexionError') && state.connexion.connexionError != null)
+  
   return {
-    facebookStatus: state.user.facebookStatus,
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+    hasLoggingFailed: hasLoggingFailed,
   }
 }
 

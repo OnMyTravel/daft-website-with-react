@@ -3,7 +3,6 @@ import {
   FACEBOOK_AUTHENTICATION_FAILED,
   FACEBOOK_AUTHENTICATION_SUCCESS,
   API_AUTHENTICATION_SUCCESS,
-  API_AUTHENTICATION_FAILED,
   API_AUTHENTICATION_LOGOUT
 } from './actiontypes'
 
@@ -40,13 +39,10 @@ export const logWithFacebook = () => {
 
         dispatch(push('/profile'));
       })
-      .catch(() => {
+      .catch((err) => {
         dispatch({
-          type: FACEBOOK_AUTHENTICATION_FAILED
-        })
-
-        dispatch({
-          type: API_AUTHENTICATION_FAILED
+          type: FACEBOOK_AUTHENTICATION_FAILED,
+          result: err
         })
       });
   }
