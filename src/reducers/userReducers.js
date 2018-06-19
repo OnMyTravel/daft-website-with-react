@@ -8,7 +8,6 @@ const defaultState = {}
 const UserReducers = (state = defaultState, action) => {
   switch (action.type) {
     case LOAD_USER_PROFILE:
-      console.log(state.user)
       return Object.assign({}, state, {
         user: action.result
       });

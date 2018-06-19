@@ -13,12 +13,9 @@ const defaultState = {
 
 const ConnexionReducer = (state = {}, action) => {
   switch (action.type) {
-    case START_AUTHENTICATION:
-      return Object.assign({}, state, {
-      });
-
     case FACEBOOK_AUTHENTICATION_FAILED:
       return Object.assign({}, state, {
+        connexionError: action.result
       });
 
     case FACEBOOK_AUTHENTICATION_SUCCESS:
@@ -31,6 +28,7 @@ const ConnexionReducer = (state = {}, action) => {
         accessToken: action.result.token
       });
 
+    case START_AUTHENTICATION:
     case API_AUTHENTICATION_LOGOUT:
       return Object.assign({}, defaultState);
 

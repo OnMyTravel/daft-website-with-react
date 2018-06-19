@@ -1,5 +1,6 @@
 import FacebookApi from '../../services/FacebookApi'
 import FacebookAccess from '../../models/FacebookAccess'
+import FacebookLoginError from '../../errors/FacebookLoginError'
 
 describe('Services | API | Facebook', () => {
 
@@ -49,7 +50,7 @@ describe('Services | API | Facebook', () => {
         global.window.FB.login.mockImplementation(callback => callback({ status: 'unknown' }))
 
         // then
-        return expect(facebookApi.login()).rejects.toEqual({ status: 'unknown' })
+        return expect(facebookApi.login()).rejects.toEqual(new FacebookLoginError('unknown'))
       })
     })
 

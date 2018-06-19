@@ -1,4 +1,5 @@
 import FacebookAccess from '../models/FacebookAccess'
+import FacebookLoginError from '../errors/FacebookLoginError'
 
 class FacebookApi {
   constructor({ httpClient } = {}) {
@@ -15,7 +16,7 @@ class FacebookApi {
           }));
         }
 
-        reject(response);
+        reject(new FacebookLoginError(response.status));
       })
     }) 
   }

@@ -3,7 +3,7 @@ import React from 'react'
 import './Login.css'
 
 const Login = ({
-  facebookStatus,
+  hasLoggingFailed,
   logWithFacebook
 }) => {
   return (
@@ -12,6 +12,14 @@ const Login = ({
         <div className="container">
           <div className="notification">
             <h1 className="title is-1">Login</h1>
+
+              {hasLoggingFailed && 
+                <div className="notification is-danger">
+                  An error occured while creating an account
+                </div>
+              }
+              
+
               <p>
                 Because we want to help you to share your most <b>magical moments</b> with as many friends and relatives
                 as possibles, we started building OnMyTravel using the most popular social media.
