@@ -26,8 +26,6 @@ const Trip = ({
         <Location name="Central Park" address="5th Avenue, New York City, NY 10022" />
       </div>
 
-      <img src="" />
-
       <p className="content-padding">
         {trip.steps[1].content}
       </p>
