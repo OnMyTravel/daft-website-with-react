@@ -1,6 +1,7 @@
 import APIClient from '../../services/APIClient'
 import UserApi from '../../services/UserApi'
 import FacebookApi from '../../services/FacebookApi';
+import TripApi from '../../services/TripApi';
 
 describe('Services | APIClient', () => {
   let apiClient;
@@ -27,6 +28,13 @@ describe('Services | APIClient', () => {
     test('should have a property Facebook()', () => {
       expect(apiClient.Facebook).toBeDefined();
       expect(apiClient.Facebook).toBeInstanceOf(FacebookApi)
+    })
+  })
+  
+  describe('#Trip', () => {
+    test('should have a property Trip()', () => {
+      expect(apiClient.Trip).toBeDefined();
+      expect(apiClient.Trip).toBeInstanceOf(TripApi)
     })
   })
 

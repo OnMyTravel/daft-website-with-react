@@ -18,3 +18,4 @@ export const toggleTodo = (id) => ({
 
 export * from './connexion';
 export * from './user';
+export * from './trip';

@@ -1,11 +1,16 @@
 import React from 'react';
 import './Trip.css';
 
-import Location from './Location'
-
 const Trip = ({
-  trip
+  tripId,
+  trip,
+  getTripDetailsFromId
 }) => {
+
+  if(!trip) {
+    getTripDetailsFromId(tripId)
+  }
+
   return (
     <div className="trip__wrapper">
       <div className="content-padding">Back</div>
@@ -18,7 +23,7 @@ const Trip = ({
         Day 1
       </div>
 
-      <p className="content-padding">
+      {/* <p className="content-padding">
         {trip.steps[0].content}
       </p>
 
@@ -32,7 +37,7 @@ const Trip = ({
 
       <p className="content-padding">
         {trip.steps[2].content}
-      </p>
+      </p> */}
       
     </div>
   );

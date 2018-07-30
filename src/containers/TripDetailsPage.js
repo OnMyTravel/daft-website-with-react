@@ -1,22 +1,27 @@
 import { connect } from 'react-redux'
 import Trip from '../components/Trip'
 
-const mapStateToProps = (state) => {
+import { getTripDetailsFromId } from '../actions'
+
+function getTripById(trips, id) {
+  return trips[id];
+}
+
+const mapStateToProps = (state, ownProps) => {
+  
+  const tripId = ownProps.match.params.id;
+  const trip = getTripById(state.trips, tripId)
 
   return {
-    trip: {
-      description: 'The city that never sleeps. The Big Apple. Concrete jungle. New York City.',
-      steps: [
-        { id: '', content: 'The backdrop of countless classics, New York City, has a unique aura to it. A massive city of 9 million, New York City is impossible to ‘see’ in one visit. However, there are ways to make the most of the limited time you have. Here is a weekend guide to New York City:' },
-        { id: '', content: "America's first major landscaped public park, a walk around the Central Park is the perfect way to kick start your 3 days in New York. Spread over 843 acres, Central Park offers hundreds of special attractions for explorers; green meadows, sprawling lakes, gardens, unique bridges and classical architecture." },
-        { id: '', content: "Expect tan-hungry locals to take over the area on weekends, alongside Frisbee-throwing bros and guitar sing-alongs. Do not forget to attempt a handstand!" },
-      ]
-    }
+    tripId,
+    trip
   }
 
 }
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  getTripDetailsFromId 
+}
 
 const TripDetailsPage = connect(
   mapStateToProps,
