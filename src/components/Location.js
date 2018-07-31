@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Location.css';
+import '../styles/Location.css';
 
 const Location = ({ name, address } = {}) => {
   return (

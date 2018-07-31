@@ -1,5 +1,5 @@
 import React from 'react';
-import './TripTimeline.css';
+import '../styles/TripTimeline.css';
 
 const Trip = ({
   tripId,
@@ -10,6 +10,8 @@ const Trip = ({
   if(!trip) {
     getTripDetailsFromId(tripId)
   }
+
+  console.log(trip.days)
 
   return (
     <div className="timeline__wrapper">

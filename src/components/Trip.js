@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Trip.css';
+import '../styles/Trip.css';
 import TripTimeline from './TripTimeline'
 
 const Offline = ({

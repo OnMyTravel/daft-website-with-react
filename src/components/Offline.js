@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Offline.css'
+import '../styles/Offline.css'
 
 const Offline = ({ todos, onTodoClick }) => {
 

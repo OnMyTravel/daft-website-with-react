@@ -3,7 +3,7 @@ import React, {
     Component
 } from 'react'
 
-import './Map.css';
+import '../styles/Map.css';
 
 const MapStyle = [
     {

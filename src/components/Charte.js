@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Charte.css';
+import '../styles/Charte.css';
 
 import Modale from './Modale';
 import Button from './Button';
