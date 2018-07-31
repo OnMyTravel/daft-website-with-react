@@ -17,7 +17,6 @@ export const getTripDetailsFromId = (id) => {
         return API.Trip.get(id)
       })
       .then((trip) => {
-        console.log('LOADED TRIP', trip)
         dispatch({
           type: TRIP_DETAILS_LOADED,
           result: trip

@@ -1,4 +1,22 @@
+import { Deserializer } from 'jsonapi-serializer'
 import Trip from '../models/Trip'
+
+const tripDeserializer = new Deserializer({
+  days: {
+    valueForRelationship(relationship) {
+      return {
+        id: relationship.id,
+      }
+    }
+  },
+  users: {
+    valueForRelationship(relationship) {
+      return {
+        id: relationship.id,
+      }
+    }
+  }
+});
 
 class TripApi {
   constructor({ httpClient } = {}) {
@@ -6,31 +24,25 @@ class TripApi {
   }
 
   getAll() {
-    return this.httpClient.get('/trips').then((trips) => {
-
-      return trips.map((rawTrip) => {
-        return new Trip({
-          id: rawTrip._id,
-          userId: rawTrip.owner_id,
-          name: rawTrip.name,
-          destination: rawTrip.destination,
-          description: rawTrip.description,
-        })
+    return this.httpClient.get('/trips')
+      .then((rawTrips) => {
+        return tripDeserializer.deserialize(rawTrips)
       })
-    });
+      .then((trips) => {
+        return trips.map((rawTrip) => {
+          return new Trip(rawTrip)
+        })
+      });
   }
 
   get(id) {
-    return this.httpClient.get(`/trips/${id}`).then((rawTrip) => {
-      console.log(rawTrip.data.attributes)
-      return new Trip({
-        id: rawTrip.data.id,
-        userId: rawTrip.data.attributes.userId,
-        name: rawTrip.data.attributes.name,
-        destination: rawTrip.data.attributes.destination,
-        description: rawTrip.data.attributes.description,
+    return this.httpClient.get(`/trips/${id}`)
+      .then((rawTrip) => {
+        return tripDeserializer.deserialize(rawTrip)
       })
-    })
+      .then((data) => {
+        return new Trip(data)
+      });
   }
 }
 

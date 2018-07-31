@@ -4,13 +4,15 @@ class Trip {
     name,
     description,
     destination,
-    userId,
+    user,
+    days = []
    } = {}) {
       this.id = id;
       this.name = name;
       this.description = description;
       this.destination = destination;
-      this.userId = userId;
+      this.user = user;
+      this.days = days;
   }
 }
 

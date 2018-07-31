@@ -9,15 +9,26 @@ describe('Services | API | Trips', () => {
 
     beforeEach(() => {
       httpClientMock = {
-        get: jest.fn().mockImplementation(() => Promise.resolve([
+        get: jest.fn().mockImplementation(() => Promise.resolve(
           {
-            "_id": "5b58a6c010880682dbec3266",
-            "name": "Voyage dans le 18eme ... siecle",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tortor massa. Cras massa enim, pellentesque eget congue eget, malesuada sit amet augue. Integer condimentum, tellus in iaculis eleifend, massa nisi euismod metus, at egestas augue mauris vitae libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eu placerat enim. Suspendisse potenti. Integer eget sem id risus placerat cursus quis sit amet lacus.",
-            "destination": "ROUEN",
-            "owner_id": "5b586ddee27fbe534801bbed"
+            "data": [{
+              "type": "trips",
+              "id": "5b58a6c010880682dbec3266",
+              "attributes": {
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tortor massa. Cras massa enim, pellentesque eget congue eget, malesuada sit amet augue. Integer condimentum, tellus in iaculis eleifend, massa nisi euismod metus, at egestas augue mauris vitae libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eu placerat enim. Suspendisse potenti. Integer eget sem id risus placerat cursus quis sit amet lacus.",
+                "name": "Voyage dans le 18eme ... siecle",
+                "destination": "ROUEN"
+              },
+              "relationships": {
+                "user": {
+                  "data": {
+                    "type": "users", "id": "5b586ddee27fbe534801bbed"
+                  }
+                }
+              }
+            }]
           }
-        ]))
+        ))
       }
 
       tripAPI = new TripApi({
@@ -30,7 +41,7 @@ describe('Services | API | Trips', () => {
       expect(tripAPI.getAll).toBeDefined();
     })
 
-    test('should return a User', () => {
+    test('should return a list of trips', () => {
       // when
       const promise = tripAPI.getAll()
 
@@ -43,7 +54,10 @@ describe('Services | API | Trips', () => {
           "name": "Voyage dans le 18eme ... siecle",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tortor massa. Cras massa enim, pellentesque eget congue eget, malesuada sit amet augue. Integer condimentum, tellus in iaculis eleifend, massa nisi euismod metus, at egestas augue mauris vitae libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eu placerat enim. Suspendisse potenti. Integer eget sem id risus placerat cursus quis sit amet lacus.",
           "destination": "ROUEN",
-          "userId": "5b586ddee27fbe534801bbed"
+          "user": {
+            "id": "5b586ddee27fbe534801bbed"
+          },
+          "days": []
         })
       })
     })
@@ -69,9 +83,23 @@ describe('Services | API | Trips', () => {
             "id": "5b58a6c010880682dbec3266",
             "attributes": {
               "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tortor massa. Cras massa enim, pellentesque eget congue eget, malesuada sit amet augue. Integer condimentum, tellus in iaculis eleifend, massa nisi euismod metus, at egestas augue mauris vitae libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eu placerat enim. Suspendisse potenti. Integer eget sem id risus placerat cursus quis sit amet lacus.",
-              "name": "Voyage dans le 18eme ... siecle"
+              "name": "Voyage dans le 18eme ... siecle",
+              "destination": "ROUEN"
             },
-            "relationships": { "days": { "data": [] } }
+            "relationships": {
+              "days": {
+                "data": [{
+                  "type": "days", "id": "5b5f81ad633153d09309d81b"
+                }, {
+                  "type": "days", "id": "5b5f81ae633153d09309d81c"
+                }]
+              },
+              "user": {
+                "data": {
+                  "type": "users", "id": "5b586ddee27fbe534801bbed"
+                }
+              }
+            }
           }
         }))
       }
@@ -86,7 +114,7 @@ describe('Services | API | Trips', () => {
       expect(tripAPI.get).toBeDefined();
     })
 
-    test('should return a User', () => {
+    test('should return a Trip', () => {
       // when
       const promise = tripAPI.get('5b58a6c010880682dbec3266')
 
@@ -98,7 +126,10 @@ describe('Services | API | Trips', () => {
           "name": "Voyage dans le 18eme ... siecle",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tortor massa. Cras massa enim, pellentesque eget congue eget, malesuada sit amet augue. Integer condimentum, tellus in iaculis eleifend, massa nisi euismod metus, at egestas augue mauris vitae libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eu placerat enim. Suspendisse potenti. Integer eget sem id risus placerat cursus quis sit amet lacus.",
           "destination": "ROUEN",
-          "userId": "5b586ddee27fbe534801bbed"
+          "user": {
+            id: "5b586ddee27fbe534801bbed"
+          },
+          "days": [{ "id": "5b5f81ad633153d09309d81b" }, { "id": "5b5f81ae633153d09309d81c" }]
         })
       })
     })
