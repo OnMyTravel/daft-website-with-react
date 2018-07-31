@@ -1,17 +1,19 @@
-.trip__wrapper {
-  
-  .content-padding {
-    padding: 10px 20px;
+.trip__frame {
+  flex-direction: "row";
+  display: flex;
+  flex-grow: 1;
+
+  .timeline {
+    max-height: 100vh;
+    overflow: scroll;  
   }
 
-  .date-marker {
-    margin: 20px 0;
-    padding: 20px 60px 20px 20px;
-    background-color: #FE4365;
-    color: white;
-    text-transform: uppercase;
+  .trip__map {
+    background: url('../assets/travelSplash/indonesia.jpg') center;
+    background-size: cover;
+  }  
+}
 
-    display: inline-block;
-    border-radius: 0 40px 40px 0;
-  }
+.columns--override {
+  display: flex;
 }

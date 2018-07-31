@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { linkTo } from '@storybook/addon-links';
 import { checkA11y } from '@storybook/addon-a11y';
 
-import Trip from '../components/Trip';
+import TripTimeline from '../components/TripTimeline';
 
 import '../index.css';
 
@@ -17,6 +17,6 @@ const trip = {
   ]
 }
 
-storiesOf('Trip details', module)
+storiesOf('Trip timeline', module)
     .addDecorator(checkA11y)
-    .add('without any details', () => <Trip trip={trip} />);
+    .add('without any details', () => <TripTimeline trip={trip} />);
