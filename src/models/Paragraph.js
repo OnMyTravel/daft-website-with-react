@@ -8,4 +8,4 @@ class Paragraph {
   }
 }
 
-module.exports = Paragraph;
+export default Paragraph

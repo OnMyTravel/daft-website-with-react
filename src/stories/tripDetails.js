@@ -6,7 +6,7 @@ import { checkA11y } from '@storybook/addon-a11y';
 
 import TripTimeline from '../components/TripTimeline';
 
-import '../../index.css';
+import '../index.css';
 
 const trip = {
   description: 'The city that never sleeps. The Big Apple. Concrete jungle. New York City.',
