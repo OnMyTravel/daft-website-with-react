@@ -26,31 +26,5 @@ describe('Unit | Reducer | tripReducers', () => {
         '1a32e6ba7c278945edd03': trip
       })
     })
-
-  //   test('should set the API token from previous state', () => {
-  //     // when
-  //     const nextState = tripReducers(undefined, {
-  //       type: REHYDRATE, payload: {
-  //         user: {
-  //           api_token: 'my-token'
-  //         }
-  //       }
-  //     });
-
-  //     // then
-  //     expect(nextState).toEqual({})
-  //     expect(API.setToken).toHaveBeenCalledWith('my-token')
-  //   })
-
-  //   test('should not set the API token', () => {
-  //     // when
-  //     const nextState = tripReducers(undefined, {
-  //       type: REHYDRATE, payload: null
-  //     });
-
-  //     // then
-  //     expect(nextState).toEqual({})
-  //     expect(API.setToken).not.toHaveBeenCalled()
-  //   })
   })
 })
