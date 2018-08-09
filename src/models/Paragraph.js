@@ -5,6 +5,7 @@ class Paragraph {
    } = {}) {
       this.id = id;
       this.content = content;
+      this.type = 'paragraph';
   }
 }
 

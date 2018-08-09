@@ -1,11 +1,17 @@
 import { Deserializer } from 'jsonapi-serializer'
 import Day from '../models/Day'
 import Paragraph from '../models/Paragraph'
+import Image from '../models/Image'
 
 const dayDeserializer = new Deserializer({
   paragraph: {
     valueForRelationship: (paragraph, included) => {
       return new Paragraph(included)
+    }
+  },
+  image: {
+    valueForRelationship: (image, included) => {
+      return new Image(included)
     }
   }
 });

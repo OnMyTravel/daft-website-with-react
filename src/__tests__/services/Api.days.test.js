@@ -1,6 +1,7 @@
 import DayApi from '../../services/DayApi'
 import Day from '../../models/Day'
 import Paragraph from '../../models/Paragraph'
+import Image from '../../models/Image'
 
 describe('Services | API | Days', () => {
 
@@ -20,6 +21,16 @@ describe('Services | API | Days', () => {
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum eros et mattis efficitur.",
                   "uris feugiat magna nisl, non tempus mi feugiat non. Nulla vulputate turpis massa, nec vulputate est rhoncus at."
                 ]
+              }
+            },
+            {
+              "type": "image",
+              "id": "53d09309d81d5b5f82c06331",
+              "attributes": {
+                "caption": "Ma légende de titre",
+                "gps": {
+
+                }
               }
             },
             {
@@ -92,6 +103,10 @@ describe('Services | API | Days', () => {
                 "uris feugiat magna nisl, non tempus mi feugiat non. Nulla vulputate turpis massa, nec vulputate est rhoncus at."
               ]
             },
+            new Image({
+              "id": "5b5f82d1633153d09309d81e",
+              "caption": 'Ma légende de titre'
+            }),
             new Paragraph({
               "id": "5b5f82d1633153d09309d81e",
               "content": [
