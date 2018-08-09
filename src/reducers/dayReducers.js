@@ -10,7 +10,7 @@ const dayReducers = (state = {}, action) => {
       return Object.assign({}, state, newValue);
 
     case DAY_DETAILS_LOADED:
-      newValue[action.result.dayId] = action.result
+      newValue[action.result.id] = action.result
       return Object.assign({}, state, newValue);
 
     case LOADING_DAY_DETAILS_FAILED:

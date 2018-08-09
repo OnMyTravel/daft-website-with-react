@@ -63,7 +63,7 @@ describe('Unit | Reducer | dayReducers', () => {
   describe('DAY_DETAILS_LOADED', () => {
     test('should persist the day in the state', () => {
       // given
-      const day = { dayId: '1a32e6ba7c278945edd03' }
+      const day = { id: '1a32e6ba7c278945edd03' }
 
       // when
       const nextState = dayReducers(undefined, {

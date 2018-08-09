@@ -21,6 +21,8 @@ export const getTripDetailsFromId = (id) => {
           type: TRIP_DETAILS_LOADED,
           result: trip
         })
+        
+        return trip
       })
       .catch((err) => {
         dispatch({

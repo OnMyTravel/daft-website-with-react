@@ -1,33 +1,39 @@
 import React from 'react';
+import Day from './Day'
+
 import '../styles/TripTimeline.css';
 
 const Trip = ({
   tripId,
   trip,
-  getTripDetailsFromId
+  days = [],
+  reloadAction
 }) => {
 
-  if(!trip) {
-    getTripDetailsFromId(tripId)
-  }
+  const daysElement = []
+  const nbOfDays = days.length;
+  days.reverse().forEach((day, index) => {
+    const dayRender = (
+      <Day id={nbOfDays - index} key={index} day={day} />
+    );
 
-  console.log(trip.days)
+    daysElement.push(dayRender)
+  })
+
+  const tripDescription = (!trip) ?
+    (<div className="content-padding">Loading</div>)
+    : (<div className="description">{trip.description}</div>)
 
   return (
     <div className="timeline__wrapper">
-      
-      <span className="icon is-large" size="large" onClick={() => getTripDetailsFromId(tripId)}>
-        <ion-icon name="refresh"></ion-icon>
-      </span>
-      
 
-      <div className="content-padding">
-        {trip.description}
-      </div>
+        <span className="icon is-large" size="large" onClick={() => reloadAction(tripId)}>
+          <ion-icon name="refresh"></ion-icon> reload
+        </span>
 
-      <div className="date-marker">
-        Day 1
-      </div>
+      {tripDescription}
+
+      {daysElement}
 
       {/* <p className="content-padding">
         {trip.steps[0].content}
@@ -44,7 +50,7 @@ const Trip = ({
       <p className="content-padding">
         {trip.steps[2].content}
       </p> */}
-      
+
     </div>
   );
 }

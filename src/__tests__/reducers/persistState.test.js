@@ -20,30 +20,30 @@ describe('persistState', () => {
       expect(API.setToken).not.toHaveBeenCalled()
     })
 
-    test('should set the API token from previous state', () => {
-      // when
-      const nextState = persistState(undefined, {
-        type: REHYDRATE, payload: {
-          user: {
-            api_token: 'my-token'
-          }
-        }
-      });
+    // test('should set the API token from previous state', () => {
+    //   // when
+    //   const nextState = persistState(undefined, {
+    //     type: REHYDRATE, payload: {
+    //       user: {
+    //         api_token: 'my-token'
+    //       }
+    //     }
+    //   });
 
-      // then
-      expect(nextState).toEqual({})
-      expect(API.setToken).toHaveBeenCalledWith('my-token')
-    })
+    //   // then
+    //   expect(nextState).toEqual({})
+    //   expect(API.setToken).toHaveBeenCalledWith('my-token')
+    // })
 
-    test('should not set the API token', () => {
-      // when
-      const nextState = persistState(undefined, {
-        type: REHYDRATE, payload: null
-      });
+  //   test('should not set the API token', () => {
+  //     // when
+  //     const nextState = persistState(undefined, {
+  //       type: REHYDRATE, payload: null
+  //     });
 
-      // then
-      expect(nextState).toEqual({})
-      expect(API.setToken).not.toHaveBeenCalled()
-    })
+  //     // then
+  //     expect(nextState).toEqual({})
+  //     expect(API.setToken).not.toHaveBeenCalled()
+  //   })
   })
 })

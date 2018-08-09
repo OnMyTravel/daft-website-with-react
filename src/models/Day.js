@@ -1,7 +1,7 @@
 class Day {
   constructor({ 
     id,
-    content,
+    content = [],
    } = {}) {
       this.id = id;
       this.content = content;

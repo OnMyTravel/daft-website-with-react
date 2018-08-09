@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 
 import PrivateRoute from './containers/PrivateRouteContainer'
 
+import Loading from './components/Loading';
 import ProfilePage from './containers/ProfilePage';
 import LoginPage from './containers/LoginPage';
 import OfflinePage from './containers/OfflinePage';
@@ -18,7 +19,7 @@ import TripDetailsPage from './containers/TripDetailsPage';
 
 const AppRouter = ({ store, history, persistor }) => (
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+    <PersistGate loading={<Loading />} persistor={persistor}>
       <ConnectedRouter history={history}>
           <div id="router">
             <Route exact path="/" component={OfflinePage} />
