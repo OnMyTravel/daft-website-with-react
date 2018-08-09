@@ -65,7 +65,7 @@ describe('Services | API | Users', () => {
       const promise = apiUser.register(token)
 
       // then
-      return promise.then((user) => {
+      return promise.then(() => {
         expect(httpClientMock.post).toHaveBeenCalledWith('/users/register/facebook', {
           access_token: token
         });

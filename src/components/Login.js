@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Login.css'
+import '../styles/Login.css'
 
 const Login = ({
   hasLoggingFailed,

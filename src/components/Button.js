@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Button.scss';
+import '../styles/Button.scss';
 
 const Button = ({ link, children, alt = 'primary' } = {}) => {
 

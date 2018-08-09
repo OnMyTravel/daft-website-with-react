@@ -1,3 +1,5 @@
 import WelcomeStory from './welcome';
-import buttonStory from './button';
+import locationStory from './location';
 import tripDetailsStory from './tripDetails';
+import dayDetailsStory from './dayDetails';
+import paragraphStory from './paragraph';
