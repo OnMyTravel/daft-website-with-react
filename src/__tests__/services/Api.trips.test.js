@@ -49,7 +49,7 @@ describe('Services | API | Trips', () => {
       return promise.then((trips) => {
         expect(trips.length).toEqual(1);
         expect(trips[0]).toBeInstanceOf(Trip);
-        expect(trips[0]).toEqual({
+        expect(trips[0]).toEqual(new Trip({
           "id": "5b58a6c010880682dbec3266",
           "name": "Voyage dans le 18eme ... siecle",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tortor massa. Cras massa enim, pellentesque eget congue eget, malesuada sit amet augue. Integer condimentum, tellus in iaculis eleifend, massa nisi euismod metus, at egestas augue mauris vitae libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eu placerat enim. Suspendisse potenti. Integer eget sem id risus placerat cursus quis sit amet lacus.",
@@ -58,7 +58,7 @@ describe('Services | API | Trips', () => {
             "id": "5b586ddee27fbe534801bbed"
           },
           "days": []
-        })
+        }))
       })
     })
 
@@ -121,7 +121,7 @@ describe('Services | API | Trips', () => {
       // then
       return promise.then((trip) => {
         expect(trip).toBeInstanceOf(Trip);
-        expect(trip).toEqual({
+        expect(trip).toEqual(new Trip({
           "id": "5b58a6c010880682dbec3266",
           "name": "Voyage dans le 18eme ... siecle",
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et tortor massa. Cras massa enim, pellentesque eget congue eget, malesuada sit amet augue. Integer condimentum, tellus in iaculis eleifend, massa nisi euismod metus, at egestas augue mauris vitae libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eu placerat enim. Suspendisse potenti. Integer eget sem id risus placerat cursus quis sit amet lacus.",
@@ -130,7 +130,7 @@ describe('Services | API | Trips', () => {
             id: "5b586ddee27fbe534801bbed"
           },
           "days": [{ "id": "5b5f81ad633153d09309d81b" }, { "id": "5b5f81ae633153d09309d81c" }]
-        })
+        }))
       })
     })
 

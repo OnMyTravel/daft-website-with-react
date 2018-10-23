@@ -10,14 +10,21 @@ const Trip = ({
   loadTrip
 }) => {
 
-  if(!trip)
+  if (!trip) {
     loadTrip(tripId)
+  }
+  else {
+    const shoudBeReloaded = false;
+    if (shoudBeReloaded) {
+      loadTrip(tripId)
+    }
+  }
 
   return (
     <section className="hero is-fullheight">
       <div className="trip__frame">
         <div className="column is-paddingless timeline">
-          <TripTimeline 
+          <TripTimeline
             tripId={tripId}
             trip={trip}
             days={days}
@@ -31,4 +38,3 @@ const Trip = ({
 }
 
 export default Trip
-  
