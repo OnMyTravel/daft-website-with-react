@@ -16,6 +16,7 @@ import OfflinePage from './containers/OfflinePage';
 import ChartePage from './containers/ChartePage';
 import Homepage from './containers/Homepage';
 import TripDetailsPage from './containers/TripDetailsPage';
+import ExploreTripsPage from './containers/ExploreTripsPage';
 
 const AppRouter = ({ store, history, persistor }) => (
   <Provider store={store}>
@@ -26,6 +27,7 @@ const AppRouter = ({ store, history, persistor }) => (
             <Route exact path="/log-in" component={LoginPage} />
             <Route exact path="/charte" component={ChartePage} />
             <Route exact path="/map" component={Homepage} />
+            <Route exact path="/voyages" component={ExploreTripsPage} />
             <Route exact path="/voyage/:id" component={TripDetailsPage} />
             <PrivateRoute exact path="/profile" component={ProfilePage} />
           </div>
