@@ -1,9 +1,7 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import Trip from '../components/Trip'
 
-import { getTripDetailsFromId, getDayDetailsFromId, loadTripAndSubressources } from '../actions'
-import { stat } from 'fs';
+import { loadTripAndSubressources } from '../actions'
 
 function getTripById(trips, id) {
   return trips[id];

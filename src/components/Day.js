@@ -4,7 +4,6 @@ import '../styles/Day.css';
 import Paragraph from './Paragraph'
 
 const Day = ({ id, day }) => {
-  
   let content;
 
   if(!day.content || (day.hasOwnProperty('state') && day.state === 'FAILED'))
@@ -14,7 +13,9 @@ const Day = ({ id, day }) => {
       if(subArticle.type === 'paragraph')
         return (<Paragraph key={index} paragraph={subArticle} />)
       else if(subArticle.type === 'image')
-        return (<img key={index} src={'https://api.onmy.travel/' + subArticle.path} />)
+        return (<img key={index} src={'https://api.onmy.travel/' + subArticle.path} alt="" />)
+      else 
+        return "";
     })
 
   return (
